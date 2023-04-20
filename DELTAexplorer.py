@@ -1634,7 +1634,7 @@ if view_permutation_options == 'Yes':
 
     #Compile the list of child variant nodes (cycles only)
     if linker_check == 'No' and cycle_check=='No':
-        ChildVariants=MainTreeNodes
+        ChildVariants=[]
 
     #if literature scaling option is selected, load the topology descriptor data compiled from the literature
     if lit_scale == 'Yes':
