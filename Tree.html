@@ -1,0 +1,108 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@latest/styles/vis-network.css" type="text/css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vis-network@latest/dist/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 800px;
+            height: 800px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"id": "A", "label": "A", "shape": "dot"}, {"id": "AB", "label": "AB", "shape": "dot"}, {"id": "ABC", "label": "ABC", "shape": "dot"}, {"id": "AB(C)", "label": "AB(C)", "shape": "dot"}, {"id": "ABCD", "label": "ABCD", "shape": "dot"}, {"id": "ABC(D)", "label": "ABC(D)", "shape": "dot"}, {"id": "AB(C)D", "label": "AB(C)D", "shape": "dot"}, {"id": "ABCDE", "label": "ABCDE", "shape": "dot"}, {"id": "ABCD(E)", "label": "ABCD(E)", "shape": "dot"}, {"id": "ABC(D)E", "label": "ABC(D)E", "shape": "dot"}, {"id": "AB(C)DE", "label": "AB(C)DE", "shape": "dot"}, {"id": "AB(C)D(E)", "label": "AB(C)D(E)", "shape": "dot"}, {"id": "ABCDEF", "label": "ABCDEF", "shape": "dot"}, {"id": "ABCDE(F)", "label": "ABCDE(F)", "shape": "dot"}, {"id": "ABCD(E)F", "label": "ABCD(E)F", "shape": "dot"}, {"id": "ABC(D)EF", "label": "ABC(D)EF", "shape": "dot"}, {"id": "ABC(D)E(F)", "label": "ABC(D)E(F)", "shape": "dot"}, {"id": "AB(C)DEF", "label": "AB(C)DEF", "shape": "dot"}, {"id": "AB(C)DE(F)", "label": "AB(C)DE(F)", "shape": "dot"}, {"id": "AB(C)D(E)F", "label": "AB(C)D(E)F", "shape": "dot"}]);
+        edges = new vis.DataSet([{"from": "A", "to": "AB"}, {"from": "AB", "to": "ABC"}, {"from": "AB", "to": "AB(C)"}, {"from": "ABC", "to": "ABCD"}, {"from": "ABC", "to": "ABC(D)"}, {"from": "AB(C)", "to": "AB(C)D"}, {"from": "ABCD", "to": "ABCDE"}, {"from": "ABCD", "to": "ABCD(E)"}, {"from": "ABC(D)", "to": "ABC(D)E"}, {"from": "AB(C)D", "to": "AB(C)DE"}, {"from": "AB(C)D", "to": "AB(C)D(E)"}, {"from": "ABCDE", "to": "ABCDEF"}, {"from": "ABCDE", "to": "ABCDE(F)"}, {"from": "ABCD(E)", "to": "ABCD(E)F"}, {"from": "ABC(D)E", "to": "ABC(D)EF"}, {"from": "ABC(D)E", "to": "ABC(D)E(F)"}, {"from": "AB(C)DE", "to": "AB(C)DEF"}, {"from": "AB(C)DE", "to": "AB(C)DE(F)"}, {"from": "AB(C)D(E)", "to": "AB(C)D(E)F"}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
