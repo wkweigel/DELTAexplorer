@@ -1550,10 +1550,10 @@ view_permutation_options = st.sidebar.radio('Show Permutation Explorer Options',
 #Conditional section only used if the permutation view options are toggled on by the user
 if view_permutation_options == 'Yes':
     #Define number of DEL elements from streamlit user input (DEFULT index=3)
-    DEL_size= int(st.sidebar.selectbox('Number of structural elements:',('3', '4', '5', '6', '7', '8'), index=3))
+    DEL_size= int(st.sidebar.selectbox('Max. number of structural elements:',('3', '4', '5', '6', '7', '8'), index=3))
 
     #Define number of diversity elements from streamlit user input (DEFULT index=2)
-    Diversity_Elements=int(st.sidebar.selectbox('Number of diversity elements:',('2','3','4','5','6'), index=2))
+    Diversity_Elements=int(st.sidebar.selectbox('Max. number of diversity elements:',('2','3','4','5','6'), index=2))
 
     # Toggle consideration of cyclic topologies from streamlit user input (DEFULT index=1)
     cycle_check = st.sidebar.radio('Consider cyclic permuations?',('Yes', 'No'), index=0)
