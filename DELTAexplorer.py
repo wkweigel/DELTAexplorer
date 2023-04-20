@@ -1632,6 +1632,10 @@ if view_permutation_options == 'Yes':
     if linker_check == 'No' and cycle_check=='Yes':
         ChildVariants=CyclicVariants
 
+    #Compile the list of child variant nodes (cycles only)
+    if linker_check == 'No' and cycle_check=='No':
+        ChildVariants=MainTreeNodes
+
     #if literature scaling option is selected, load the topology descriptor data compiled from the literature
     if lit_scale == 'Yes':
         df=pd.read_csv('Descriptor_Data.csv')
