@@ -1,6 +1,6 @@
 # DELTAexplorer
 
-A python Streamlit application for visualizing the topology (arrangement) of the diversity elements within a DNA Encoded Library (DEL). <br><br>
+A Streamlit application for visualizing the topology (arrangement) of the diversity elements within a DNA Encoded Library (DEL). <br><br>
 
 ![DELTA Explorer Application](App.png)
 
